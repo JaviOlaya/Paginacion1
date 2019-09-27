@@ -5,13 +5,10 @@ const express = require('express');
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb:localhost/PaginacionBD',
-{useMongoClient:true
-}).then(()=>console.log('DB is connected'))
+mongoose.connect('mongodb://localhost/PaginacionBD', { useNewUrlParser: true }).then(()=>console.log('DB is connected'))
 .catch(err => console.log(err));
 
-const indexRoutes=require('./routes/index');
-//secciones en el servidor:
+const indexRoutes = require('./routes/index');
 
 //settings
 
