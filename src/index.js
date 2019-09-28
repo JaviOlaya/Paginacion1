@@ -2,8 +2,9 @@ const bodyParser = require ('body-parser');
 const path = require ('path');
 const mongoose = require('mongoose');
 const express = require('express');
-const app = express();
+const ejs = require('ejs');
 
+const app = express();
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/PaginacionBD', { useNewUrlParser: true }).then(()=>console.log('DB is connected'))
 .catch(err => console.log(err));
@@ -24,5 +25,6 @@ app.use(indexRoutes);
 //static files
 
 
-app.listen(app.get('port'), ()=>{console.log(' server on ', app.get('port'))
+app.listen(app.get('port'), ()=>{
+    console.log(' server on ', app.get('port'))
 });
